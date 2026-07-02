@@ -17,7 +17,7 @@
 import { useState, MouseEventHandler, PropsWithChildren } from 'react';
 import classnames from 'classnames';
 import Button from '@material-ui/core/Button';
-import { default as ExpandMoreIcon } from '@material-ui/icons/ExpandMore';
+import { RiArrowDownSLine } from '@remixicon/react';
 import { useAlertStatusSummaryButtonStyles as useStyles } from '../../utils/styles';
 
 type AlertStatusSummaryButtonProps = {
@@ -45,7 +45,7 @@ export const AlertStatusSummaryButton = ({
       color="primary"
       disableElevation
       aria-label="expand"
-      endIcon={<ExpandMoreIcon className={iconClassName} />}
+      endIcon={<RiArrowDownSLine className={iconClassName} />}
       onClick={handleOnClick}
     >
       {children}

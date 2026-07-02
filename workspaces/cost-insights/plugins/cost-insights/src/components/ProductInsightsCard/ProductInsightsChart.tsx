@@ -18,7 +18,7 @@ import { useMemo, useState } from 'react';
 import pluralize from 'pluralize';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { default as FullScreenIcon } from '@material-ui/icons/Fullscreen';
+import { RiFullscreenLine } from '@remixicon/react';
 import { LegendItem } from '../LegendItem';
 import { ProductEntityDialog } from './ProductEntityDialog';
 import { CostGrowth, CostGrowthIndicator } from '../CostGrowth';
@@ -176,7 +176,7 @@ export const ProductInsightsChart = ({
           }
           actions={
             <Box className={classes.actions}>
-              <FullScreenIcon />
+              <RiFullscreenLine />
               <Typography>Click for breakdown</Typography>
             </Box>
           }

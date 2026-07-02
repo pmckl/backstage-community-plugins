@@ -18,8 +18,7 @@ import { PropsWithChildren } from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-import LensIcon from '@material-ui/icons/Lens';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import { RiCircleFill, RiQuestionLine } from '@remixicon/react';
 import { useCostGrowthLegendStyles } from '../../utils/styles';
 
 /** @public */
@@ -45,7 +44,7 @@ export const LegendItem = (props: PropsWithChildren<LegendItemProps>) => {
       >
         {markerColor && (
           <div className={classes.marker}>
-            <LensIcon style={{ fontSize: '1em', fill: markerColor }} />
+            <RiCircleFill size={16} style={{ fill: markerColor }} />
           </div>
         )}
         <Typography className={classes.title} variant="overline">
@@ -67,7 +66,7 @@ export const LegendItem = (props: PropsWithChildren<LegendItemProps>) => {
               aria-label="help"
               className={classes.helpIcon}
             >
-              <HelpOutlineOutlinedIcon fontSize="small" />
+              <RiQuestionLine size={16} />
             </Typography>
           </Tooltip>
         )}

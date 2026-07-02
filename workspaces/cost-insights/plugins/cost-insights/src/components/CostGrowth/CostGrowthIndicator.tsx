@@ -16,8 +16,7 @@
 
 import classnames from 'classnames';
 import Typography, { TypographyProps } from '@material-ui/core/Typography';
-import { default as ArrowDropUp } from '@material-ui/icons/ArrowDropUp';
-import { default as ArrowDropDown } from '@material-ui/icons/ArrowDropDown';
+import { RiArrowUpSLine, RiArrowDownSLine } from '@remixicon/react';
 import { growthOf } from '../../utils/change';
 import { GrowthType } from '../../types';
 import { useCostGrowthStyles as useStyles } from '../../utils/styles';
@@ -53,8 +52,10 @@ export const CostGrowthIndicator = (props: CostGrowthIndicatorProps) => {
   return (
     <Typography className={classNames} component="span" {...extraProps}>
       {formatter ? formatter(change, { absolute: true }) : change.ratio}
-      {growth === GrowthType.Excess && <ArrowDropUp aria-label="excess" />}
-      {growth === GrowthType.Savings && <ArrowDropDown aria-label="savings" />}
+      {growth === GrowthType.Excess && <RiArrowUpSLine aria-label="excess" />}
+      {growth === GrowthType.Savings && (
+        <RiArrowDownSLine aria-label="savings" />
+      )}
     </Typography>
   );
 };

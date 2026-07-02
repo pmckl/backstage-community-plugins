@@ -15,7 +15,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { default as HappyFace } from '@material-ui/icons/SentimentSatisfiedAlt';
+import { RiEmotionLine } from '@remixicon/react';
 import { renderInTestApp } from '@backstage/test-utils';
 import { CostInsightsNavigation } from './CostInsightsNavigation';
 import { Icon } from '../../types';
@@ -26,7 +26,7 @@ import { getDefaultNavigationItems } from '../../utils/navigation';
 const mockIcons: Icon[] = [
   {
     kind: 'some-product',
-    component: <HappyFace />,
+    component: <RiEmotionLine />,
   },
 ];
 

@@ -16,7 +16,7 @@
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import LensIcon from '@material-ui/icons/Lens';
+import { RiCircleFill } from '@remixicon/react';
 import { useTooltipStyles as useStyles } from '../../utils/styles';
 
 /** @public */
@@ -46,7 +46,11 @@ export const BarChartTooltipItem = (props: BarChartTooltipItemProps) => {
     >
       <Box display="flex" alignContent="center" marginRight=".5em">
         <Box display="flex" alignItems="center" marginRight=".5em">
-          <LensIcon className={classes.lensIcon} style={{ fill: item.fill }} />
+          <RiCircleFill
+            size={12}
+            className={classes.lensIcon}
+            style={{ fill: item.fill }}
+          />
         </Box>
         <Typography>{item.label}</Typography>
       </Box>

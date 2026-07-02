@@ -22,7 +22,7 @@ import Chip from '@material-ui/core/Chip';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import { RiCalendarLine } from '@remixicon/react';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers/MuiPickersUtilsProvider';
 import { KeyboardDatePicker } from '@material-ui/pickers/DatePicker';
 import LuxonUtils from '@date-io/luxon';
@@ -164,7 +164,7 @@ export const DateRangePicker = ({
       <Button
         className={classes.button}
         variant="outlined"
-        startIcon={<CalendarTodayIcon />}
+        startIcon={<RiCalendarLine />}
         onClick={handleClick}
         data-testid="period-select"
       >

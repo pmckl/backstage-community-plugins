@@ -15,9 +15,7 @@
  */
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { default as SnoozeIcon } from '@material-ui/icons/AccessTime';
-import { default as AcceptIcon } from '@material-ui/icons/Check';
-import { default as DismissIcon } from '@material-ui/icons/Delete';
+import { RiTimeLine, RiCheckLine, RiDeleteBinLine } from '@remixicon/react';
 import { AlertInsightsSectionHeader } from './AlertInsightsSectionHeader';
 import { Alert } from '../../types';
 import {
@@ -61,7 +59,7 @@ export const AlertInsightsSection = ({
                 variant="contained"
                 aria-label="accept"
                 onClick={() => onAccept(alert)}
-                startIcon={<AcceptIcon />}
+                startIcon={<RiCheckLine />}
               >
                 Accept
               </Button>
@@ -75,7 +73,7 @@ export const AlertInsightsSection = ({
                 aria-label="snooze"
                 disableElevation
                 onClick={() => onSnooze(alert)}
-                startIcon={<SnoozeIcon />}
+                startIcon={<RiTimeLine />}
               >
                 Snooze
               </Button>
@@ -88,7 +86,7 @@ export const AlertInsightsSection = ({
               aria-label="dismiss"
               disableElevation
               onClick={() => onDismiss(alert)}
-              startIcon={<DismissIcon />}
+              startIcon={<RiDeleteBinLine />}
             >
               Dismiss
             </Button>

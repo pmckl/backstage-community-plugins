@@ -24,7 +24,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
-import { default as CloseIcon } from '@material-ui/icons/Close';
+import { RiCloseLine } from '@remixicon/react';
 import { useAlertDialogStyles as useStyles } from '../../utils/styles';
 import { Alert, AlertStatus } from '../../types';
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
@@ -103,7 +103,7 @@ export const AlertDialog = ({
           aria-label="Close"
           onClick={onDialogClose}
         >
-          <CloseIcon />
+          <RiCloseLine />
         </IconButton>
       </Box>
       <DialogContent className={classes.content}>

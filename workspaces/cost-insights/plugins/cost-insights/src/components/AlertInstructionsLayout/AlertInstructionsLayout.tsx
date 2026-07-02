@@ -19,7 +19,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { RiArrowLeftSLine } from '@remixicon/react';
 import { CostInsightsThemeProvider } from '../CostInsightsPage/CostInsightsThemeProvider';
 import { ConfigProvider, CurrencyProvider } from '../../hooks';
 import { Header, Page } from '@backstage/core-components';
@@ -54,7 +54,7 @@ export const AlertInstructionsLayout = ({
               <Box mb={3}>
                 <Button
                   variant="outlined"
-                  startIcon={<ChevronLeftIcon />}
+                  startIcon={<RiArrowLeftSLine />}
                   href="/cost-insights"
                 >
                   Back to Cost Insights

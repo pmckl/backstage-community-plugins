@@ -17,8 +17,7 @@
 import { useEffect, useState } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { RiArrowLeftSLine, RiArrowRightSLine } from '@remixicon/react';
 import { BarChartStepperButton } from './BarChartStepperButton';
 import { BarChartSteps } from './BarChartSteps';
 import { useBarChartStepperStyles } from '../../utils/styles';
@@ -87,7 +86,7 @@ export const BarChartStepper = ({
           className={classes.backButton}
           onClick={handleBack}
         >
-          <ChevronLeftIcon />
+          <RiArrowLeftSLine />
         </BarChartStepperButton>
       </Slide>
       <BarChartSteps
@@ -106,7 +105,7 @@ export const BarChartStepper = ({
           className={classes.nextButton}
           onClick={handleNext}
         >
-          <ChevronRightIcon />
+          <RiArrowRightSLine />
         </BarChartStepperButton>
       </Slide>
     </Paper>

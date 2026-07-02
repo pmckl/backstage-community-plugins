@@ -20,7 +20,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Tab from '@material-ui/core/Tab';
 import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { RiArrowDownSLine } from '@remixicon/react';
 import { mapLoadingToProps, mapFiltersToProps } from './selector';
 import { Group } from '@backstage-community/plugin-cost-insights-common';
 import { useFilters, useLoading } from '../../hooks';
@@ -52,7 +52,7 @@ export const CostInsightsTabs = ({ groups }: CostInsightsTabsProps) => {
       <Typography className={classes.tabLabelText} variant="overline">
         {`${groups.length} teams`}
       </Typography>
-      <ExpandMoreIcon fontSize="small" />
+      <RiArrowDownSLine size={16} />
     </div>
   );
 

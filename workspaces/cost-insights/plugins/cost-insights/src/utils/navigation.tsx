@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MoneyIcon from '@material-ui/icons/MonetizationOn';
-import ActionIcon from '@material-ui/icons/Whatshot';
-import Settings from '@material-ui/icons/Settings';
-import AccountTree from '@material-ui/icons/AccountTree';
-import Storage from '@material-ui/icons/Storage';
-import Search from '@material-ui/icons/Search';
-import CloudQueue from '@material-ui/icons/CloudQueue';
-import School from '@material-ui/icons/School';
-import ViewHeadline from '@material-ui/icons/ViewHeadline';
+import {
+  RiMoneyDollarCircleLine,
+  RiFireLine,
+  RiSettingsLine,
+  RiNodeTree,
+  RiDatabase2Line,
+  RiSearchLine,
+  RiCloudLine,
+  RiGraduationCapLine,
+  RiListCheck,
+} from '@remixicon/react';
 import { IconType } from '../types';
 
 export enum DefaultNavigation {
@@ -39,14 +41,14 @@ export const getDefaultNavigationItems = (alerts: number): NavigationItem[] => {
   const items = [
     {
       navigation: DefaultNavigation.CostOverviewCard,
-      icon: <MoneyIcon />,
+      icon: <RiMoneyDollarCircleLine />,
       title: 'Cost Overview',
     },
   ];
   if (alerts > 0) {
     items.push({
       navigation: DefaultNavigation.AlertInsightsHeader,
-      icon: <ActionIcon />,
+      icon: <RiFireLine />,
       title: 'Action Items',
     });
   }
@@ -56,18 +58,18 @@ export const getDefaultNavigationItems = (alerts: number): NavigationItem[] => {
 export function getIcon(icon?: string): JSX.Element {
   switch (icon) {
     case IconType.Compute:
-      return <Settings />;
+      return <RiSettingsLine />;
     case IconType.Data:
-      return <AccountTree />;
+      return <RiNodeTree />;
     case IconType.Database:
-      return <ViewHeadline />;
+      return <RiListCheck />;
     case IconType.Storage:
-      return <Storage />;
+      return <RiDatabase2Line />;
     case IconType.Search:
-      return <Search />;
+      return <RiSearchLine />;
     case IconType.ML:
-      return <School />;
+      return <RiGraduationCapLine />;
     default:
-      return <CloudQueue />;
+      return <RiCloudLine />;
   }
 }

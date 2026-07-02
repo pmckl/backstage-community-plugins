@@ -20,9 +20,7 @@ import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import Divider from '@material-ui/core/Divider';
 import Tooltip from '@material-ui/core/Tooltip';
-import { default as AcceptIcon } from '@material-ui/icons/Check';
-import { default as DismissIcon } from '@material-ui/icons/Delete';
-import { default as SnoozeIcon } from '@material-ui/icons/AccessTime';
+import { RiCheckLine, RiDeleteBinLine, RiTimeLine } from '@remixicon/react';
 import { ActionItemCard } from '../ActionItems';
 import { Alert, AlertStatus } from '../../types';
 import { useActionItemCardStyles as useStyles } from '../../utils/styles';
@@ -81,7 +79,7 @@ export const AlertStatusSummary = ({
           alerts={accepted}
           status={AlertStatus.Accepted}
           icon={
-            <AcceptIcon
+            <RiCheckLine
               role="img"
               aria-hidden={false}
               aria-label={AlertStatus.Accepted}
@@ -95,7 +93,7 @@ export const AlertStatusSummary = ({
           alerts={snoozed}
           status={AlertStatus.Snoozed}
           icon={
-            <SnoozeIcon
+            <RiTimeLine
               role="img"
               aria-hidden={false}
               aria-label={AlertStatus.Snoozed}
@@ -109,7 +107,7 @@ export const AlertStatusSummary = ({
           alerts={dismissed}
           status={AlertStatus.Dismissed}
           icon={
-            <DismissIcon
+            <RiDeleteBinLine
               role="img"
               aria-hidden={false}
               aria-label={AlertStatus.Dismissed}

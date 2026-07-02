@@ -17,7 +17,7 @@
 import { useState } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
-import { default as CloseButton } from '@material-ui/icons/Close';
+import { RiCloseLine } from '@remixicon/react';
 import { useEntityDialogStyles as useStyles } from '../../utils/styles';
 import { Entity } from '@backstage-community/plugin-cost-insights-common';
 import {
@@ -54,7 +54,7 @@ export const ProductEntityDialog = ({
   return (
     <Dialog open={open} onClose={onClose} scroll="body" fullWidth maxWidth="lg">
       <IconButton className={classes.closeButton} onClick={onClose}>
-        <CloseButton />
+        <RiCloseLine />
       </IconButton>
       <HeaderTabs
         tabs={tabs}

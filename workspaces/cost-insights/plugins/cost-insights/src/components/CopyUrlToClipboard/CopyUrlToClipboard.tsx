@@ -19,9 +19,11 @@ import { useLocation } from 'react-router-dom';
 import useCopyToClipboard from 'react-use/esm/useCopyToClipboard';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
-import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
+import {
+  RiFileCopyLine,
+  RiClipboardLine,
+  RiEmotionUnhappyLine,
+} from '@remixicon/react';
 
 const ClipboardMessage = {
   default: 'Copy URL to clipboard',
@@ -49,14 +51,14 @@ export const CopyUrlToClipboard = () => {
   }, [state]);
 
   let text = ClipboardMessage.default;
-  let Icon = AssignmentOutlinedIcon;
+  let Icon = RiFileCopyLine;
 
   if (state.error) {
     text = ClipboardMessage.error;
-    Icon = SentimentVeryDissatisfiedIcon;
+    Icon = RiEmotionUnhappyLine;
   } else if (copied) {
     text = ClipboardMessage.success;
-    Icon = AssignmentTurnedInOutlinedIcon;
+    Icon = RiClipboardLine;
   }
 
   return (

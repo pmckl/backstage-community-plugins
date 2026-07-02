@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// eslint-disable-next-line @backstage/no-ui-css-imports-in-non-frontend
+import '@backstage/ui/css/styles.css';
 import { createDevApp } from '@backstage/dev-utils';
 import { ExampleCostInsightsClient } from '../src/example';
 import { costInsightsApiRef } from '../src/api';

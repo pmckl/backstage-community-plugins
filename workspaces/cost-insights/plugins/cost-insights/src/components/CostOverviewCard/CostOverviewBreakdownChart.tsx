@@ -20,7 +20,7 @@ import Divider from '@material-ui/core/Divider';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import { useTheme } from '@material-ui/core/styles';
-import { default as FullScreenIcon } from '@material-ui/icons/Fullscreen';
+import { RiFullscreenLine } from '@remixicon/react';
 import {
   Area,
   AreaChart,
@@ -201,7 +201,7 @@ export const CostOverviewBreakdownChart = ({
           }}
         />
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <FullScreenIcon />
+          <RiFullscreenLine />
           <Typography>Click to expand</Typography>
         </Box>
       </Box>

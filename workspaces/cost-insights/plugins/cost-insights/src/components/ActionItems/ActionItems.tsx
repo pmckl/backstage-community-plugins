@@ -22,9 +22,7 @@ import Badge from '@material-ui/core/Badge';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
-import { default as SnoozeIcon } from '@material-ui/icons/AccessTime';
-import { default as AcceptIcon } from '@material-ui/icons/Check';
-import { default as DismissIcon } from '@material-ui/icons/Delete';
+import { RiTimeLine, RiCheckLine, RiDeleteBinLine } from '@remixicon/react';
 import { ActionItemCard } from './ActionItemCard';
 import { Alert, AlertStatus } from '../../types';
 import { useScroll, ScrollType } from '../../hooks';
@@ -100,7 +98,7 @@ export const ActionItems = ({
             <AlertStatusButton
               title="Accepted"
               aria-label={AlertStatus.Accepted}
-              icon={<AcceptIcon />}
+              icon={<RiCheckLine />}
               amount={accepted.length}
               onClick={onStatusButtonClick}
             />
@@ -110,7 +108,7 @@ export const ActionItems = ({
               title="Snoozed"
               aria-label={AlertStatus.Snoozed}
               amount={snoozed.length}
-              icon={<SnoozeIcon />}
+              icon={<RiTimeLine />}
               onClick={onStatusButtonClick}
             />
           )}
@@ -118,7 +116,7 @@ export const ActionItems = ({
             <AlertStatusButton
               title="Dismissed"
               aria-label={AlertStatus.Dismissed}
-              icon={<DismissIcon />}
+              icon={<RiDeleteBinLine />}
               amount={dismissed.length}
               onClick={onStatusButtonClick}
             />

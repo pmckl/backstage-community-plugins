@@ -26,6 +26,9 @@ import {
   convertLegacyRouteRefs,
 } from '@backstage/core-compat-api';
 import { EntityContentBlueprint } from '@backstage/plugin-catalog-react/alpha';
+// NOTE(bui-migration): kept as an MUI icon on purpose. NavItemBlueprint's
+// `icon` prop expects MUI's IconComponent type, and @remixicon/react icons
+// are not type-compatible with it.
 import MoneyIcon from '@material-ui/icons/MonetizationOn';
 import { rootRouteRef } from '../routes';
 import { costInsightsApiRef } from '../api';
