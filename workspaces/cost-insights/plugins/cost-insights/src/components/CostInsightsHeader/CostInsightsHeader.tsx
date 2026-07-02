@@ -15,6 +15,7 @@
  */
 
 import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import useAsync from 'react-use/esm/useAsync';
 import { useCostInsightsStyles } from '../../utils/styles';
 import { Group } from '@backstage-community/plugin-cost-insights-common';
@@ -44,20 +45,20 @@ const CostInsightsHeaderNoData = ({
 
   return (
     <>
-      <Typography variant="h4" align="center" gutterBottom>
-        <Typography component="span" role="img" aria-label="flushed-face">
+      <Text as="h4" variant="title-medium" style={{ textAlign: 'center' }}>
+        <Text role="img" aria-label="flushed-face">
           😳
-        </Typography>{' '}
+        </Text>{' '}
         Well this is awkward
-      </Typography>
+      </Text>
       <Typography className={classes.h6Subtle} align="center" gutterBottom>
         <b>Hey, {displayName}!</b> <b>{ownerName}</b> doesn't seem to have any
         cloud costs.
       </Typography>
       {hasMultipleGroups && (
-        <Typography align="center" gutterBottom>
+        <Text style={{ textAlign: 'center' }}>
           Maybe we picked the wrong team, choose another from the menu above?
-        </Typography>
+        </Text>
       )}
     </>
   );
@@ -74,12 +75,12 @@ const CostInsightsHeaderAlerts = ({
 
   return (
     <>
-      <Typography variant="h4" align="center" gutterBottom>
-        <Typography component="span" role="img" aria-label="magnifying-glass">
+      <Text as="h4" variant="title-medium" style={{ textAlign: 'center' }}>
+        <Text role="img" aria-label="magnifying-glass">
           🔎
-        </Typography>{' '}
+        </Text>{' '}
         You have {alerts} thing{alerts > 1 && 's'} to look into
-      </Typography>
+      </Text>
       <Typography className={classes.h6Subtle} align="center" gutterBottom>
         <b>Hey, {displayName}!</b> We've identified{' '}
         {alerts > 1 ? 'a few things ' : 'one thing '}
@@ -99,12 +100,12 @@ const CostInsightsHeaderNoAlerts = ({
 
   return (
     <>
-      <Typography variant="h4" gutterBottom align="center">
-        <Typography component="span" role="img" aria-label="thumbs-up">
+      <Text as="h4" variant="title-medium" style={{ textAlign: 'center' }}>
+        <Text role="img" aria-label="thumbs-up">
           👍
-        </Typography>{' '}
+        </Text>{' '}
         Your team is doing great
-      </Typography>
+      </Text>
       <Typography className={classes.h6Subtle} align="center" gutterBottom>
         <b>Hey, {displayName}!</b> <b>{ownerName}</b> is doing well. No major
         changes this month.
@@ -118,12 +119,12 @@ export const CostInsightsHeaderNoGroups = () => {
   const classes = useCostInsightsStyles();
   return (
     <>
-      <Typography variant="h4" align="center" gutterBottom>
-        <Typography component="span" role="img" aria-label="flushed-face">
+      <Text as="h4" variant="title-medium" style={{ textAlign: 'center' }}>
+        <Text role="img" aria-label="flushed-face">
           😳
-        </Typography>{' '}
+        </Text>{' '}
         Well this is awkward
-      </Typography>
+      </Text>
       <Typography className={classes.h6Subtle} align="center" gutterBottom>
         <b>Hey, {displayName}!</b> It doesn't look like you belong to any teams.
       </Typography>

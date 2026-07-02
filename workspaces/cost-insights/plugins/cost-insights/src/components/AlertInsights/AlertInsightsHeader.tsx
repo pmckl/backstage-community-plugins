@@ -16,6 +16,7 @@
 
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { useCostInsightsStyles as useStyles } from '../../utils/styles';
 import { ScrollAnchor } from '../../utils/scroll';
 import { DefaultNavigation } from '../../utils/navigation';
@@ -34,12 +35,12 @@ export const AlertInsightsHeader = ({
   return (
     <Box mb={6} position="relative">
       <ScrollAnchor id={DefaultNavigation.AlertInsightsHeader} />
-      <Typography variant="h4" align="center">
+      <Text as="h4" variant="title-medium" style={{ textAlign: 'center' }}>
         {title}{' '}
-        <Typography component="span" role="img" aria-label="direct-hit">
+        <Text role="img" aria-label="direct-hit">
           🎯
-        </Typography>
-      </Typography>
+        </Text>
+      </Text>
       <Typography className={classes.h6Subtle} align="center" gutterBottom>
         {subtitle}
       </Typography>

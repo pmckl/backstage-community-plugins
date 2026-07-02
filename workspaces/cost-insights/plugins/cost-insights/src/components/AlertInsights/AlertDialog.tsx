@@ -23,7 +23,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import DialogContent from '@material-ui/core/DialogContent';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { RiCloseLine } from '@remixicon/react';
 import { useAlertDialogStyles as useStyles } from '../../utils/styles';
 import { AlertItem, AlertStatus } from '../../types';
@@ -108,14 +108,14 @@ export const AlertDialog = ({
       </Box>
       <DialogContent className={classes.content}>
         <Box mb={1.5}>
-          <Typography variant="h5">
+          <Text as="h5" variant="title-small">
             <b>{capitalize(action)} this action item?</b>
-          </Typography>
-          <Typography variant="h6" color="textSecondary">
+          </Text>
+          <Text as="h6" variant="title-x-small" color="secondary">
             <b>
               This action item will be {actioned} for all of {group}.
             </b>
-          </Typography>
+          </Text>
         </Box>
         <Box
           display="flex"
@@ -125,10 +125,10 @@ export const AlertDialog = ({
           mb={1.5}
           borderRadius={4}
         >
-          <Typography>
+          <Text>
             <b>{alert?.title}</b>
-          </Typography>
-          <Typography color="textSecondary">{alert?.subtitle}</Typography>
+          </Text>
+          <Text color="secondary">{alert?.subtitle}</Text>
         </Box>
         {Form && (
           <Form

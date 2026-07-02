@@ -27,7 +27,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import {
   AlertItem,
   AlertFormProps,
@@ -75,9 +75,9 @@ export const AlertSnoozeForm = forwardRef<
   return (
     <form ref={ref} onSubmit={onFormSubmit}>
       <FormControl component="fieldset" fullWidth>
-        <Typography color="textPrimary">
+        <Text>
           <b>For how long?</b>
-        </Typography>
+        </Text>
         <Box mb={1}>
           <RadioGroup
             name="snooze-alert-options"

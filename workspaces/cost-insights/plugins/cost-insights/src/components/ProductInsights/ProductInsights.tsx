@@ -16,8 +16,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import { Alert } from '@backstage/ui';
+import { Alert, Text } from '@backstage/ui';
 import { costInsightsApiRef } from '../../api';
 import { ProductInsightsCardList } from '../ProductInsightsCard/ProductInsightsCardList';
 import { Duration } from '../../types';
@@ -146,9 +145,9 @@ export const ProductInsights = ({
   return (
     <Box px={3} py={6}>
       <Box mt={0} mb={5} textAlign="center">
-        <Typography variant="h4" gutterBottom>
+        <Text as="h4" variant="title-medium">
           Your team's product usage
-        </Typography>
+        </Text>
       </Box>
       {error ? (
         <Alert status="danger" icon title={error.message} />

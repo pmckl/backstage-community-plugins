@@ -21,7 +21,7 @@ import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { Alert } from '@backstage/ui';
+import { Alert, Text } from '@backstage/ui';
 import { costInsightsApiRef } from '../../api';
 import { ActionItems } from '../ActionItems';
 import { AlertInsights } from '../AlertInsights';
@@ -235,7 +235,9 @@ export const CostInsightsPage = () => {
       minHeight={40}
     >
       <Box>
-        <Typography variant="h4">Cost Overview</Typography>
+        <Text as="h4" variant="title-medium">
+          Cost Overview
+        </Text>
         <Typography classes={classes}>
           Billing data as of {lastCompleteBillingDate}
         </Typography>

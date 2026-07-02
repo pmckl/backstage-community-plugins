@@ -18,7 +18,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { useAlertInsightsSectionStyles as useStyles } from '../../utils/styles';
 import { ScrollAnchor } from '../../utils/scroll';
 import { AlertItem } from '../../types';
@@ -51,8 +51,10 @@ export const AlertInsightsSectionHeader = ({
               <Avatar className={classes.button}>{number}</Avatar>
             </Box>
             <Box>
-              <Typography variant="h5">{alert.title}</Typography>
-              <Typography gutterBottom>{alert.subtitle}</Typography>
+              <Text as="h5" variant="title-small">
+                {alert.title}
+              </Text>
+              <Text>{alert.subtitle}</Text>
             </Box>
           </Box>
         </Grid>

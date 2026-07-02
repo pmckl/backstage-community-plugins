@@ -18,7 +18,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select, { SelectProps } from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { Currency, CurrencyType } from '../../types';
 import { findAlways } from '../../utils/assert';
 import { useSelectStyles as useStyles } from '../../utils/styles';
@@ -70,9 +70,9 @@ export const CurrencySelect = ({
             key={c.kind || NULL_VALUE}
             value={c.kind || NULL_VALUE}
           >
-            <Typography component="span" role="img" aria-label={c.label}>
+            <Text role="img" aria-label={c.label}>
               {c.label}
-            </Typography>
+            </Text>
           </MenuItem>
         ))}
       </Select>

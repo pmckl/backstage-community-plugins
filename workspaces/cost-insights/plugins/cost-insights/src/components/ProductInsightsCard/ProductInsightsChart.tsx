@@ -17,7 +17,7 @@
 import { useMemo, useState } from 'react';
 import pluralize from 'pluralize';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { RiFullscreenLine } from '@remixicon/react';
 import { LegendItem } from '../LegendItem';
 import { ProductEntityDialog } from './ProductEntityDialog';
@@ -177,7 +177,7 @@ export const ProductInsightsChart = ({
           actions={
             <Box className={classes.actions}>
               <RiFullscreenLine />
-              <Typography>Click for breakdown</Typography>
+              <Text>Click for breakdown</Text>
             </Box>
           }
         >

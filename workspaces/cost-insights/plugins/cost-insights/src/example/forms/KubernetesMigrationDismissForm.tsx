@@ -25,7 +25,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { AlertFormProps } from '../../types';
 import { Entity } from '@backstage-community/plugin-cost-insights-common';
 import { KubernetesMigrationAlert } from '../alerts';
@@ -82,9 +82,9 @@ export const KubernetesMigrationDismissForm = forwardRef<
     /* All custom forms must accept a ref and implement an onSubmit handler. */
     <form ref={ref} onSubmit={onFormSubmit}>
       <FormControl component="fieldset" fullWidth>
-        <Typography color="textPrimary">
+        <Text>
           <b>Or choose which services to dismiss this alert for.</b>
-        </Typography>
+        </Text>
         <FormGroup>
           {alert.data.services.map((service, index) => (
             <FormControlLabel

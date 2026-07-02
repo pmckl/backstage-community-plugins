@@ -16,7 +16,7 @@
 
 import { DateTime } from 'luxon';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { AlertInstructionsLayout } from '../AlertInstructionsLayout';
 import { ProductInsightsChart } from '../ProductInsightsCard';
 import {
@@ -100,80 +100,86 @@ export const ProjectGrowthInstructionsPage = () => {
 
   return (
     <AlertInstructionsLayout title="Investigating Growth">
-      <Typography variant="h1">Investigating cloud cost growth</Typography>
-      <Typography paragraph>
+      <Text as="h1" variant="title-large">
+        Investigating cloud cost growth
+      </Text>
+      <Text as="p">
         Cost Insights shows an alert when costs for a particular billing entity,
         such as a GCP project, have grown at a rate faster than our alerting
         threshold. The responsible team should follow this guide to decide
         whether this warrants further investigation.
-      </Typography>
+      </Text>
 
       <Box mt={4}>
-        <Typography variant="h3">Is the growth expected?</Typography>
-        <Typography paragraph>
+        <Text as="h3" variant="title-medium">
+          Is the growth expected?
+        </Text>
+        <Text as="p">
           The first question to ask is whether growth is expected. Perhaps a new
           product has been deployed, or additional regions added for
           reliability.
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           Many services increase cost linearly with load. Has the demand
           increased? This may happen as you open new markets, or run marketing
           offers. Costs should be compared against a business metric, such as
           daily users, to normalize natural increases from business growth.
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           Seasonal variance may also cause cost growth; yearly campaigns, an
           increase in demand during certain times of year.
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           Cloud costs will often go up before they go down, in the case of
           migrations. Teams moving to new infrastructure may run in both the old
           and new environment during the migration.
-        </Typography>
+        </Text>
       </Box>
 
       <Box mt={4}>
-        <Typography variant="h3">Is the growth significant?</Typography>
-        <Typography paragraph>
+        <Text as="h3" variant="title-medium">
+          Is the growth significant?
+        </Text>
+        <Text as="p">
           Next, evaluate whether the growth is significant. This helps avoid
           premature optimization, where cost in engineering time is more than
           would be saved from the optimization over a reasonable time frame.
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           We recommend reframing the cost growth itself in terms of engineering
           time. How much engineering time, for an <i>average</i> fully-loaded
           engineer cost at the company, is being overspent each month? Compare
           this to expected engineering time for optimization to decide whether
           the optimization is worthwhile.
-        </Typography>
+        </Text>
       </Box>
 
       <Box mt={4}>
-        <Typography variant="h3">
+        <Text as="h3" variant="title-medium">
           Identifying which cloud product contributed most
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           For projects meeting the alert threshold, Cost Insights shows a cost
           comparison of cloud products over the examined time period:
-        </Typography>
+        </Text>
         <Box mt={2} mb={2}>
           {projectGrowthAlert.element}
         </Box>
-        <Typography paragraph>
+        <Text as="p">
           This allows you to quickly see which cloud products contributed to the
           growth in cloud costs.
-        </Typography>
+        </Text>
       </Box>
 
       <Box mt={4}>
-        <Typography variant="h3">
+        <Text as="h3" variant="title-medium">
           Identifying the responsible workload
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           After identifying the cloud product, use the corresponding product
           panel in Cost Insights to find a particular workload (or <i>entity</i>
           ) that has grown in cost:
-        </Typography>
+        </Text>
         <Box mt={2} mb={2}>
           <InfoCard title={product.name} subheader="3 entities, sorted by cost">
             <ProductInsightsChart
@@ -183,37 +189,45 @@ export const ProjectGrowthInstructionsPage = () => {
             />
           </InfoCard>
         </Box>
-        <Typography paragraph>
+        <Text as="p">
           From here, you can dig into commit history or deployment logs to find
           probable causes of an unexpected spike in cost.
-        </Typography>
+        </Text>
       </Box>
 
       <Box mt={4}>
-        <Typography variant="h3">Optimizing the workload</Typography>
-        <Typography paragraph>
+        <Text as="h3" variant="title-medium">
+          Optimizing the workload
+        </Text>
+        <Text as="p">
           Workload optimization varies between cloud products, but there are a
           few general optimization areas to consider:
-        </Typography>
-        <Typography variant="h5">Retention</Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="h5" variant="title-small">
+          Retention
+        </Text>
+        <Text as="p">
           Is the workload or storage necessary? Truly idle or unused resources
           can be cleaned up for immediate cost savings. For storage, how long do
           we need the data? Many cloud products support retention policies to
           automatically delete data after a certain time period.
-        </Typography>
-        <Typography variant="h5">Efficiency</Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="h5" variant="title-small">
+          Efficiency
+        </Text>
+        <Text as="p">
           Is the workload using cloud resources efficiently? For compute
           resources, do the utilization metrics look reasonable? Autoscaling
           infrastructure, such as Kubernetes, can run workloads more efficiently
           without compromising reliability.
-        </Typography>
-        <Typography variant="h5">Lifecycle</Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="h5" variant="title-small">
+          Lifecycle
+        </Text>
+        <Text as="p">
           Is the workload using an optimal pricing model? Some cloud products
           offer better pricing for data that is accessed less frequently.
-        </Typography>
+        </Text>
       </Box>
     </AlertInstructionsLayout>
   );

@@ -15,7 +15,7 @@
  */
 import { PropsWithChildren } from 'react';
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 
 type CostOverviewHeaderProps = {
   title: string;
@@ -37,13 +37,13 @@ export const CostOverviewHeader = ({
     alignItems="center"
   >
     <Box minHeight={40} paddingRight={5}>
-      <Typography variant="h5" gutterBottom>
+      <Text as="h5" variant="title-small">
         {title}
-      </Typography>
+      </Text>
       {!!subtitle && (
-        <Typography variant="subtitle2" color="textSecondary" component="div">
+        <Text as="div" color="secondary">
           {subtitle}
-        </Typography>
+        </Text>
       )}
     </Box>
     <Box minHeight={40} maxHeight={60} display="flex">

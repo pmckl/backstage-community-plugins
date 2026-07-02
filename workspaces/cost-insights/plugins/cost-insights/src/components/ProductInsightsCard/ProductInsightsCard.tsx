@@ -22,8 +22,7 @@ import {
   useState,
 } from 'react';
 import pluralize from 'pluralize';
-import Typography from '@material-ui/core/Typography';
-import { Alert } from '@backstage/ui';
+import { Alert, Text } from '@backstage/ui';
 import { DateRangePicker } from '../PeriodSelect';
 import { ProductInsightsChart } from './ProductInsightsChart';
 import { useProductInsightsCardStyles as useStyles } from '../../utils/styles';
@@ -169,10 +168,10 @@ export const ProductInsightsCard = ({
           customDateRange={customDateRange}
         />
       ) : (
-        <Typography>
+        <Text>
           There are no {product.name} costs within this time frame for your
           team's projects.
-        </Typography>
+        </Text>
       )}
     </InfoCard>
   );

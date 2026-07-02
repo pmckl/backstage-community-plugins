@@ -26,7 +26,7 @@ import Collapse from '@material-ui/core/Collapse';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import {
@@ -106,9 +106,9 @@ export const AlertDismissForm = forwardRef<
   return (
     <form ref={ref} onSubmit={onFormSubmit}>
       <FormControl component="fieldset" fullWidth>
-        <Typography color="textPrimary">
+        <Text>
           <b>Reason for dismissing?</b>
-        </Typography>
+        </Text>
         <Box mb={1}>
           <RadioGroup
             name="dismiss-alert-reasons"
@@ -138,9 +138,9 @@ export const AlertDismissForm = forwardRef<
             </Box>
           </Collapse>
         </Box>
-        <Typography gutterBottom>
+        <Text>
           <b>Any other feedback you can provide?</b>
-        </Typography>
+        </Text>
         <TextField
           id="dismiss-alert-feedback"
           variant="outlined"

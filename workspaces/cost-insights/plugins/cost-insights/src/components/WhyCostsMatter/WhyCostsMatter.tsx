@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -25,55 +25,49 @@ export const WhyCostsMatter = () => {
     <Box mt={10} mb={4}>
       <Container maxWidth="md">
         <Box mt={2} mb={2}>
-          <Typography variant="h5" align="center" gutterBottom>
+          <Text as="h5" variant="title-small" style={{ textAlign: 'center' }}>
             Why cloud costs matter
-          </Typography>
+          </Text>
         </Box>
         <Grid container alignContent="space-around" spacing={3} wrap="nowrap">
           <Grid item>
-            <Typography variant="h6">
+            <Text as="h6" variant="title-x-small">
               Sustainability{' '}
-              <Typography component="span" role="img" aria-label="globe">
+              <Text role="img" aria-label="globe">
                 🌎
-              </Typography>
-            </Typography>
-            <Typography>
-              Reducing cloud usage improves our carbon footprint.
-            </Typography>
+              </Text>
+            </Text>
+            <Text>Reducing cloud usage improves our carbon footprint.</Text>
           </Grid>
           <Grid item>
             <Divider orientation="vertical" />
           </Grid>
           <Grid item>
-            <Typography variant="h6">
+            <Text as="h6" variant="title-x-small">
               Revenue{' '}
-              <Typography
-                component="span"
-                role="img"
-                aria-label="money-with-wings"
-              >
+              <Text role="img" aria-label="money-with-wings">
                 💸
-              </Typography>
-            </Typography>
-            <Typography>
+              </Text>
+            </Text>
+            <Text>
               Keeping cloud costs well-tuned prevents infrastructure from eating
               into revenue.
-            </Typography>
+            </Text>
           </Grid>
           <Grid item>
             <Divider orientation="vertical" />
           </Grid>
           <Grid item>
-            <Typography variant="h6">
+            <Text as="h6" variant="title-x-small">
               Innovation{' '}
-              <Typography component="span" role="img" aria-label="medal">
+              <Text role="img" aria-label="medal">
                 🥇
-              </Typography>
-            </Typography>
-            <Typography>
+              </Text>
+            </Text>
+            <Text>
               The more we save, the more we can reinvest in speed and
               innovation.
-            </Typography>
+            </Text>
           </Grid>
         </Grid>
       </Container>

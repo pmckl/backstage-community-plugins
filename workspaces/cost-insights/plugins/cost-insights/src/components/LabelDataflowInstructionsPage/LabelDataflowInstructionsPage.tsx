@@ -15,36 +15,40 @@
  */
 
 import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { AlertInstructionsLayout } from '../AlertInstructionsLayout';
 import { CodeSnippet, Link } from '@backstage/core-components';
 
 export const LabelDataflowInstructionsPage = () => {
   return (
     <AlertInstructionsLayout title="Investigating Growth">
-      <Typography variant="h1">Labeling Dataflow Jobs</Typography>
-      <Typography paragraph>
+      <Text as="h1" variant="title-large">
+        Labeling Dataflow Jobs
+      </Text>
+      <Text as="p">
         Labels in Google Cloud Platform are key-value pairs that can be added to
         most types of cloud resources. Since these labels are also exported in
         billing data, adding labels allows a granular breakdown of cloud cost by
         software entity.
-      </Typography>
-      <Typography paragraph>
+      </Text>
+      <Text as="p">
         In Cloud Dataflow, labels can be added to a job either programmatically
         or via the command-line when launching a job. Note that GCP has{' '}
         <Link to="https://cloud.google.com/compute/docs/labeling-resources#restrictions">
           restrictions
         </Link>{' '}
         on the length and characters that can be used in labels.
-      </Typography>
-      <Typography paragraph>
+      </Text>
+      <Text as="p">
         Labels are not retroactive, so cost tracking is only possible from when
         the labels are first added to a Dataflow job.
-      </Typography>
+      </Text>
 
       <Box mt={4}>
-        <Typography variant="h3">DataflowPipelineOptions</Typography>
-        <Typography paragraph>
+        <Text as="h3" variant="title-medium">
+          DataflowPipelineOptions
+        </Text>
+        <Text as="p">
           Dataflow jobs using Beam's{' '}
           <Link to="https://beam.apache.org/releases/javadoc/2.3.0/org/apache/beam/runners/dataflow/options/DataflowPipelineOptions.html">
             DataflowPipelineOptions
@@ -56,28 +60,30 @@ export const LabelDataflowInstructionsPage = () => {
             text={`private DataflowPipelineOptions options = PipelineOptionsFactory.fromArgs(args).as(DataflowPipelineOptionsImpl.class); 
 options.setLabels(ImmutableMap.of("job-id", "my-dataflow-job"));`}
           />
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           Dataflow jobs using Scio can similarly set options on the ScioContext:
           <CodeSnippet
             language="scala"
             text={`val (sc: ScioContext, args: Args) = ContextAndArgs(cmdLineArgs)
 sc.optionsAs[DataflowPipelineOptions].setLabels(Map("job-id" -> "my-dataflow-job").asJava)`}
           />
-        </Typography>
+        </Text>
       </Box>
 
       <Box mt={4}>
-        <Typography variant="h3">Command-line</Typography>
-        <Typography paragraph>
+        <Text as="h3" variant="title-medium">
+          Command-line
+        </Text>
+        <Text as="p">
           Dataflow jobs launched from the command-line can add labels as an
           argument:
           <CodeSnippet
             language="shell"
             text={`--labels={"job-id": "my-dataflow-job", "date-argument": "2020-09-16"}`}
           />
-        </Typography>
-        <Typography paragraph>
+        </Text>
+        <Text as="p">
           For more information on specifying options, see the{' '}
           <Link to="https://cloud.google.com/dataflow/docs/guides/specifying-exec-params">
             Dataflow documentation
@@ -87,7 +93,7 @@ sc.optionsAs[DataflowPipelineOptions].setLabels(Map("job-id" -> "my-dataflow-job
             Scio Scaladoc
           </Link>
           .
-        </Typography>
+        </Text>
       </Box>
     </AlertInstructionsLayout>
   );

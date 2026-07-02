@@ -18,7 +18,7 @@ import { DateTime } from 'luxon';
 import Box from '@material-ui/core/Box';
 import Divider from '@material-ui/core/Divider';
 import { emphasize } from '@material-ui/core/styles/colorManipulator';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { useTheme } from '@material-ui/core/styles';
 import { RiFullscreenLine } from '@remixicon/react';
 import {
@@ -202,7 +202,7 @@ export const CostOverviewBreakdownChart = ({
         />
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <RiFullscreenLine />
-          <Typography>Click to expand</Typography>
+          <Text>Click to expand</Text>
         </Box>
       </Box>
     );

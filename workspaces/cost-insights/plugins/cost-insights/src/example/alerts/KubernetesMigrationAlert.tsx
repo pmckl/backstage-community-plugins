@@ -15,7 +15,7 @@
  */
 
 import pluralize from 'pluralize';
-import Typography from '@material-ui/core/Typography';
+import { Text } from '@backstage/ui';
 import { KubernetesMigrationAlertCard } from '../components';
 import { CostInsightsApi } from '../../api';
 import {
@@ -91,11 +91,11 @@ export class KubernetesMigrationAlert implements KubernetesMigrationApi {
 
   get title() {
     return (
-      <Typography component="span">
+      <Text>
         Consider migrating{' '}
         {pluralize('service', this.data.services.length, true)} to Kubernetes{' '}
         <Lifecycle shorthand />
-      </Typography>
+      </Text>
     );
   }
 
