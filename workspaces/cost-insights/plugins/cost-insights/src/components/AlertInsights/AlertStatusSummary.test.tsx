@@ -15,22 +15,22 @@
  */
 import { AlertStatusSummary } from './AlertStatusSummary';
 import { render } from '@testing-library/react';
-import { Alert, AlertStatus } from '../../types';
+import { AlertItem, AlertStatus } from '../../types';
 import { MockScrollProvider } from '../../testUtils';
 
-const mockSnoozed: Alert = {
+const mockSnoozed: AlertItem = {
   title: 'snoozed-title',
   subtitle: 'snoozed-subtitle',
   status: AlertStatus.Snoozed,
 };
 
-const mockAccepted: Alert = {
+const mockAccepted: AlertItem = {
   title: 'accepted-title',
   subtitle: 'accepted-subtitle',
   status: AlertStatus.Accepted,
 };
 
-const mockDismissed: Alert = {
+const mockDismissed: AlertItem = {
   title: 'dismissed-title',
   subtitle: 'dismissed-subtitle',
   status: AlertStatus.Dismissed,

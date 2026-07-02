@@ -21,7 +21,7 @@ import Container from '@material-ui/core/Container';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { default as MaterialAlert } from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { costInsightsApiRef } from '../../api';
 import { ActionItems } from '../ActionItems';
 import { AlertInsights } from '../AlertInsights';
@@ -46,7 +46,7 @@ import {
   useLastCompleteBillingDate,
   useLoading,
 } from '../../hooks';
-import { Alert } from '../../types';
+import { AlertItem } from '../../types';
 import {
   Cost,
   Maybe,
@@ -74,7 +74,7 @@ export const CostInsightsPage = () => {
   const config = useConfig();
   const groups = useGroups();
   const lastCompleteBillingDate = useLastCompleteBillingDate();
-  const [alerts, setAlerts] = useState<Alert[]>([]);
+  const [alerts, setAlerts] = useState<AlertItem[]>([]);
   const [currency, setCurrency] = useCurrency();
   const [projects, setProjects] = useState<Maybe<Project[]>>(null);
   const [products, setProducts] = useState<Maybe<Product[]>>(null);
@@ -188,7 +188,7 @@ export const CostInsightsPage = () => {
   }
 
   if (error) {
-    return <MaterialAlert severity="error">{error.message}</MaterialAlert>;
+    return <Alert status="danger" icon title={error.message} />;
   }
 
   // Loaded but no groups found for the user
@@ -212,7 +212,11 @@ export const CostInsightsPage = () => {
 
   if (!dailyCost) {
     return (
-      <MaterialAlert severity="error">{`Error: Could not fetch cost insights data for team ${pageFilters.group}`}</MaterialAlert>
+      <Alert
+        status="danger"
+        icon
+        title={`Error: Could not fetch cost insights data for team ${pageFilters.group}`}
+      />
     );
   }
 

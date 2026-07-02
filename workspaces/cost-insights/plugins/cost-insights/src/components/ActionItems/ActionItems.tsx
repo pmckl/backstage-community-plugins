@@ -24,7 +24,7 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import { RiTimeLine, RiCheckLine, RiDeleteBinLine } from '@remixicon/react';
 import { ActionItemCard } from './ActionItemCard';
-import { Alert, AlertStatus } from '../../types';
+import { AlertItem, AlertStatus } from '../../types';
 import { useScroll, ScrollType } from '../../hooks';
 import { useActionItemCardStyles as useStyles } from '../../utils/styles';
 
@@ -55,10 +55,10 @@ const AlertStatusButton = ({
 );
 
 type ActionItemsProps = {
-  active: Alert[];
-  snoozed: Alert[];
-  accepted: Alert[];
-  dismissed: Alert[];
+  active: AlertItem[];
+  snoozed: AlertItem[];
+  accepted: AlertItem[];
+  dismissed: AlertItem[];
 };
 
 export const ActionItems = ({

@@ -18,7 +18,7 @@
 import { DateTime } from 'luxon';
 import { CostInsightsApi, ProductInsightsOptions } from '../api';
 import {
-  Alert,
+  AlertItem,
   DEFAULT_DATE_FORMAT,
   ProjectGrowthData,
   UnlabeledDataflowData,
@@ -166,7 +166,7 @@ export class ExampleCostInsightsClient implements CostInsightsApi {
     return productInsights;
   }
 
-  async getAlerts(group: string): Promise<Alert[]> {
+  async getAlerts(group: string): Promise<AlertItem[]> {
     const projectGrowthData: ProjectGrowthData = {
       project: 'example-project',
       periodStart: '2020-Q2',
@@ -203,7 +203,7 @@ export class ExampleCostInsightsClient implements CostInsightsApi {
     };
 
     const today = DateTime.now();
-    const alerts: Alert[] = await this.request({ group }, [
+    const alerts: AlertItem[] = await this.request({ group }, [
       new ProjectGrowthAlert(projectGrowthData),
       new UnlabeledDataflowAlert(unlabeledDataflowData),
       new KubernetesMigrationAlert(this, {

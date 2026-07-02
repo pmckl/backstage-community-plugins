@@ -20,7 +20,7 @@ import Typography from '@material-ui/core/Typography';
 import { AlertInstructionsLayout } from '../AlertInstructionsLayout';
 import { ProductInsightsChart } from '../ProductInsightsCard';
 import {
-  Alert,
+  AlertItem,
   DEFAULT_DATE_FORMAT,
   Duration,
   ProjectGrowthData,
@@ -60,7 +60,7 @@ export const ProjectGrowthInstructionsPage = () => {
     ],
   };
 
-  const projectGrowthAlert: Alert = new ProjectGrowthAlert(alertData);
+  const projectGrowthAlert: AlertItem = new ProjectGrowthAlert(alertData);
 
   const product: Product = {
     kind: 'ComputeEngine',

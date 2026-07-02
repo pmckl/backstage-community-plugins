@@ -18,11 +18,11 @@ import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import { useScroll } from '../../hooks';
-import { Alert } from '../../types';
+import { AlertItem } from '../../types';
 import { useActionItemCardStyles as useStyles } from '../../utils/styles';
 
 type ActionItemCardProps = {
-  alert: Alert;
+  alert: AlertItem;
   number?: number;
   avatar?: JSX.Element;
   disableScroll?: boolean;

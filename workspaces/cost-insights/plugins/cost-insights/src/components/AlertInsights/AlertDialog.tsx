@@ -26,7 +26,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Typography from '@material-ui/core/Typography';
 import { RiCloseLine } from '@remixicon/react';
 import { useAlertDialogStyles as useStyles } from '../../utils/styles';
-import { Alert, AlertStatus } from '../../types';
+import { AlertItem, AlertStatus } from '../../types';
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import { choose, formOf } from '../../utils/alerts';
 
@@ -35,7 +35,7 @@ const DEFAULT_FORM_ID = 'alert-form';
 type AlertDialogProps = {
   open: boolean;
   group: string;
-  alert: Maybe<Alert>;
+  alert: Maybe<AlertItem>;
   status: Maybe<AlertStatus>;
   onClose: () => void;
   onSubmit: (data: any) => void;

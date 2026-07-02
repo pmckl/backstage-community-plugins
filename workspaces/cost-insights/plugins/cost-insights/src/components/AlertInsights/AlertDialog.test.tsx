@@ -17,9 +17,9 @@ import { forwardRef } from 'react';
 import { capitalize } from '@material-ui/core/utils';
 import { AlertDialog } from './AlertDialog';
 import { render } from '@testing-library/react';
-import { Alert, AlertFormProps, AlertStatus } from '../../types';
+import { AlertItem, AlertFormProps, AlertStatus } from '../../types';
 
-type MockFormDataProps = AlertFormProps<Alert>;
+type MockFormDataProps = AlertFormProps<AlertItem>;
 
 function createForm(title: string) {
   return forwardRef<HTMLFormElement, MockFormDataProps>((props, ref) => (
@@ -29,60 +29,60 @@ function createForm(title: string) {
   ));
 }
 
-const snoozableAlert: Alert = {
+const snoozableAlert: AlertItem = {
   title: 'title',
   subtitle: 'test-subtitle',
   onSnoozed: jest.fn(),
 };
 
-const dimissableAlert: Alert = {
+const dimissableAlert: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onDismissed: jest.fn(),
 };
 
-const acceptableAlert: Alert = {
+const acceptableAlert: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onAccepted: jest.fn(),
 };
 
-const customSnoozeAlert: Alert = {
+const customSnoozeAlert: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onSnoozed: jest.fn(),
   SnoozeForm: createForm('Snooze'),
 };
 
-const customDismissAlert: Alert = {
+const customDismissAlert: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onDismissed: jest.fn(),
   DismissForm: createForm('Dismiss'),
 };
 
-const customAcceptAlert: Alert = {
+const customAcceptAlert: AlertItem = {
   title: 'title',
   subtitle: 'test-subtitle',
   onAccepted: jest.fn(),
   AcceptForm: createForm('Accept'),
 };
 
-const nullAcceptAlert: Alert = {
+const nullAcceptAlert: AlertItem = {
   title: 'title',
   subtitle: 'test-subtitle',
   onAccepted: jest.fn(),
   AcceptForm: null,
 };
 
-const nullDismissAlert: Alert = {
+const nullDismissAlert: AlertItem = {
   title: 'title',
   subtitle: 'test-subtitle',
   onDismissed: jest.fn(),
   DismissForm: null,
 };
 
-const nullSnoozeAlert: Alert = {
+const nullSnoozeAlert: AlertItem = {
   title: 'title',
   subtitle: 'test-subtitle',
   onSnoozed: jest.fn(),

@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-import { Alert, AlertForm, AlertStatus } from '../types';
+import { AlertItem, AlertForm, AlertStatus } from '../types';
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import { AlertAcceptForm, AlertDismissForm, AlertSnoozeForm } from '../forms';
 
-const createAlertHandler = (status?: AlertStatus) => (alert: Alert) =>
+const createAlertHandler = (status?: AlertStatus) => (alert: AlertItem) =>
   alert.status === status;
-export const isAlertActive = (alert: Alert) => !hasProperty(alert, 'status');
+export const isAlertActive = (alert: AlertItem) =>
+  !hasProperty(alert, 'status');
 export const isAlertSnoozed = createAlertHandler(AlertStatus.Snoozed);
 export const isAlertAccepted = createAlertHandler(AlertStatus.Accepted);
 export const isAlertDismissed = createAlertHandler(AlertStatus.Dismissed);
@@ -33,7 +34,7 @@ export const isStatusDismissed = createStatusHandler(AlertStatus.Dismissed);
 
 const createAlertEventHandler =
   (onEvent: 'onSnoozed' | 'onAccepted' | 'onDismissed') =>
-  (alert: Maybe<Alert>): boolean =>
+  (alert: Maybe<AlertItem>): boolean =>
     hasProperty(alert, onEvent);
 export const isSnoozeEnabled = createAlertEventHandler('onSnoozed');
 export const isAcceptEnabled = createAlertEventHandler('onAccepted');
@@ -41,7 +42,7 @@ export const isDismissEnabled = createAlertEventHandler('onDismissed');
 
 const createFormEnabledHandler =
   (Form: 'SnoozeForm' | 'AcceptForm' | 'DismissForm') =>
-  (alert: Maybe<Alert>): boolean => {
+  (alert: Maybe<AlertItem>): boolean => {
     if (!alert) return false;
     if (alert[Form] === null) return false;
     switch (Form) {
@@ -66,7 +67,7 @@ export const isDismissFormEnabled = createFormEnabledHandler('DismissForm');
  * @param status
  */
 export const isFormDisabled = (
-  alert: Maybe<Alert>,
+  alert: Maybe<AlertItem>,
   status: Maybe<AlertStatus>,
 ): boolean => {
   switch (status) {
@@ -82,7 +83,7 @@ export const isFormDisabled = (
 };
 
 export function formOf(
-  alert: Maybe<Alert>,
+  alert: Maybe<AlertItem>,
   status: Maybe<AlertStatus>,
 ): Maybe<AlertForm> {
   switch (status) {
@@ -125,9 +126,12 @@ export function choose<T>(
   }
 }
 
-export function hasProperty(alert: Maybe<Alert>, prop: keyof Alert): boolean {
+export function hasProperty(
+  alert: Maybe<AlertItem>,
+  prop: keyof AlertItem,
+): boolean {
   return prop in (alert ?? {});
 }
 
-export const sumOfAllAlerts = (sum: number, alerts: Alert[]) =>
+export const sumOfAllAlerts = (sum: number, alerts: AlertItem[]) =>
   sum + alerts.length;

@@ -19,7 +19,8 @@ import pluralize from 'pluralize';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Snackbar from '@material-ui/core/Snackbar';
-import { default as MuiAlert } from '@material-ui/lab/Alert';
+import { Alert, ButtonIcon } from '@backstage/ui';
+import { RiCloseLine } from '@remixicon/react';
 import { AlertDialog } from './AlertDialog';
 import { AlertStatusSummary } from './AlertStatusSummary';
 import { AlertStatusSummaryButton } from './AlertStatusSummaryButton';
@@ -32,7 +33,7 @@ import {
   MapLoadingToProps,
 } from '../../hooks';
 import { DefaultLoadingAction } from '../../utils/loading';
-import { Alert, AlertOptions, AlertStatus } from '../../types';
+import { AlertItem, AlertOptions, AlertStatus } from '../../types';
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import {
   isStatusSnoozed,
@@ -51,11 +52,11 @@ const mapLoadingToAlerts: MapLoadingToProps<MapLoadingtoAlerts> =
 
 type AlertInsightsProps = {
   group: string;
-  active: Alert[];
-  snoozed: Alert[];
-  accepted: Alert[];
-  dismissed: Alert[];
-  onChange: (alerts: Alert[]) => void;
+  active: AlertItem[];
+  snoozed: AlertItem[];
+  accepted: AlertItem[];
+  dismissed: AlertItem[];
+  onChange: (alerts: AlertItem[]) => void;
 };
 
 export const AlertInsights = ({
@@ -67,7 +68,7 @@ export const AlertInsights = ({
   onChange,
 }: AlertInsightsProps) => {
   const [scroll] = useScroll();
-  const [alert, setAlert] = useState<Maybe<Alert>>(null);
+  const [alert, setAlert] = useState<Maybe<AlertItem>>(null);
   const dispatchLoadingAlerts = useLoading(mapLoadingToAlerts);
   const [status, setStatus] = useState<Maybe<AlertStatus>>(null);
   // Allow users to pass null values for data.
@@ -80,7 +81,7 @@ export const AlertInsights = ({
   useEffect(() => {
     async function callAlertHook(
       options: AlertOptions,
-      callback: (options: AlertOptions) => Promise<Alert[]>,
+      callback: (options: AlertOptions) => Promise<AlertItem[]>,
     ) {
       setAlert(null);
       setStatus(null);
@@ -88,7 +89,7 @@ export const AlertInsights = ({
       setDialogOpen(false);
       dispatchLoadingAlerts(true);
       try {
-        const alerts: Alert[] = await callback(options);
+        const alerts: AlertItem[] = await callback(options);
         onChange(alerts);
       } catch (e) {
         setError(e);
@@ -127,17 +128,17 @@ export const AlertInsights = ({
     setSnackbarOpen(!!error);
   }, [error]);
 
-  function onSnooze(alertToSnooze: Alert) {
+  function onSnooze(alertToSnooze: AlertItem) {
     setAlert(alertToSnooze);
     setStatus(AlertStatus.Snoozed);
   }
 
-  function onAccept(alertToAccept: Alert) {
+  function onAccept(alertToAccept: AlertItem) {
     setAlert(alertToAccept);
     setStatus(AlertStatus.Accepted);
   }
 
-  function onDismiss(alertToDismiss: Alert) {
+  function onDismiss(alertToDismiss: AlertItem) {
     setAlert(alertToDismiss);
     setStatus(AlertStatus.Dismissed);
   }
@@ -221,9 +222,19 @@ export const AlertInsights = ({
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         onClose={onSnackbarClose}
       >
-        <MuiAlert onClose={onSnackbarClose} severity="error">
-          {error?.message}
-        </MuiAlert>
+        <Alert
+          status="danger"
+          icon
+          title={error?.message}
+          customActions={
+            <ButtonIcon
+              aria-label="close"
+              icon={<RiCloseLine />}
+              variant="tertiary"
+              onPress={onSnackbarClose}
+            />
+          }
+        />
       </Snackbar>
     </Grid>
   );

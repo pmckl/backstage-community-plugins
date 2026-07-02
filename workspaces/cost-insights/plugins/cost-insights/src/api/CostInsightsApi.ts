@@ -23,7 +23,7 @@ import {
   MetricData,
 } from '@backstage-community/plugin-cost-insights-common';
 
-import { Alert } from '../types';
+import { AlertItem } from '../types';
 import { createApiRef } from '@backstage/core-plugin-api';
 
 /** @public */
@@ -169,7 +169,7 @@ export type CostInsightsApi = {
    * Cost Insights page. Alerts may include cost-saving recommendations, such as infrastructure
    * migrations, or cost-related warnings, such as an unexpected billing anomaly.
    */
-  getAlerts(group: string): Promise<Alert[]>;
+  getAlerts(group: string): Promise<AlertItem[]>;
 };
 
 /** @public */

@@ -30,7 +30,7 @@ import {
 } from '../../hooks';
 import { CostInsightsThemeProvider } from '../CostInsightsPage/CostInsightsThemeProvider';
 import { Progress, WarningPanel } from '@backstage/core-components';
-import { default as MaterialAlert } from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { mapLoadingToProps } from '../CostInsightsPage/selector';
 import { intervalsOf } from '../../utils/duration';
 import { costInsightsApiRef } from '../../api';
@@ -120,11 +120,11 @@ export const EntityCostsCard = () => {
   }
 
   if (error) {
-    return <MaterialAlert severity="error">{error.message}</MaterialAlert>;
+    return <Alert status="danger" icon title={error.message} />;
   }
 
   if (!dailyCost || !dailyCost.aggregation.length) {
-    return <MaterialAlert severity="error">No daily costs</MaterialAlert>;
+    return <Alert status="danger" icon title="No daily costs" />;
   }
 
   return <CostOverviewCard dailyCostData={dailyCost} metricData={null} />;

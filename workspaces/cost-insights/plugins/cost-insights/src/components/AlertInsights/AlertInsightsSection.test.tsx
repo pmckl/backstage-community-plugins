@@ -15,10 +15,10 @@
  */
 import { AlertInsightsSection } from './AlertInsightsSection';
 import { render } from '@testing-library/react';
-import { Alert } from '../../types';
+import { AlertItem } from '../../types';
 import { MockScrollProvider } from '../../testUtils';
 
-const mockAlert: Alert = {
+const mockAlert: AlertItem = {
   subtitle:
     'Wherefore was I to this keen mockery born? When at your hands did I deserve this scorn?',
   title: 'Mock alert',
@@ -68,7 +68,7 @@ describe('<AlertInsightsSection/>', () => {
   });
 
   it('Hides instructions button if url is not provided', () => {
-    const alert: Alert = {
+    const alert: AlertItem = {
       ...mockAlert,
       url: undefined,
     };
@@ -85,7 +85,7 @@ describe('<AlertInsightsSection/>', () => {
   });
 
   it('Displays a snooze button if a hook is provided', () => {
-    const alert: Alert = {
+    const alert: AlertItem = {
       ...mockAlert,
       onSnoozed: jest.fn(),
     };
@@ -106,7 +106,7 @@ describe('<AlertInsightsSection/>', () => {
   });
 
   it('Displays a dismiss button if a hook is provided', () => {
-    const alert: Alert = {
+    const alert: AlertItem = {
       ...mockAlert,
       onDismissed: jest.fn(),
     };
@@ -127,7 +127,7 @@ describe('<AlertInsightsSection/>', () => {
   });
 
   it('Displays an accept button if a hook is provided', () => {
-    const alert: Alert = {
+    const alert: AlertItem = {
       ...mockAlert,
       onAccepted: jest.fn(),
     };

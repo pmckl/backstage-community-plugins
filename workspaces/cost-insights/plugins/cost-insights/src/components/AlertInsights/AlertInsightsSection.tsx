@@ -17,7 +17,7 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { RiTimeLine, RiCheckLine, RiDeleteBinLine } from '@remixicon/react';
 import { AlertInsightsSectionHeader } from './AlertInsightsSectionHeader';
-import { Alert } from '../../types';
+import { AlertItem } from '../../types';
 import {
   isSnoozeEnabled,
   isAcceptEnabled,
@@ -25,11 +25,11 @@ import {
 } from '../../utils/alerts';
 
 type AlertInsightsSectionProps = {
-  alert: Alert;
+  alert: AlertItem;
   number: number;
-  onSnooze: (alert: Alert) => void;
-  onAccept: (alert: Alert) => void;
-  onDismiss: (alert: Alert) => void;
+  onSnooze: (alert: AlertItem) => void;
+  onAccept: (alert: AlertItem) => void;
+  onDismiss: (alert: AlertItem) => void;
 };
 
 export const AlertInsightsSection = ({

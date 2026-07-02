@@ -18,9 +18,9 @@ import { useState, forwardRef, ChangeEvent, FormEventHandler } from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Alert, AlertFormProps } from '../types';
+import { AlertItem, AlertFormProps } from '../types';
 
-export type AlertAcceptFormProps = AlertFormProps<Alert, null>;
+export type AlertAcceptFormProps = AlertFormProps<AlertItem, null>;
 
 export const AlertAcceptForm = forwardRef<
   HTMLFormElement,

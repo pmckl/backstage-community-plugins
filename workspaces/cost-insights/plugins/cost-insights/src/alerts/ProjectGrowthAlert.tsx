@@ -15,16 +15,16 @@
  */
 
 import { ProjectGrowthAlertCard } from '../components/ProjectGrowthAlertCard';
-import { Alert, ProjectGrowthData } from '../types';
+import { AlertItem, ProjectGrowthData } from '../types';
 
 /**
- * The alert below is an example of an Alert implementation; the CostInsightsApi permits returning
- * any implementation of the Alert type, so adopters can create their own. The CostInsightsApi
- * fetches alert data from the backend, then creates Alert classes with the data.
+ * The alert below is an example of an AlertItem implementation; the CostInsightsApi permits returning
+ * any implementation of the AlertItem type, so adopters can create their own. The CostInsightsApi
+ * fetches alert data from the backend, then creates AlertItem classes with the data.
  *
  * @public
  */
-export class ProjectGrowthAlert implements Alert {
+export class ProjectGrowthAlert implements AlertItem {
   data: ProjectGrowthData;
 
   constructor(data: ProjectGrowthData) {

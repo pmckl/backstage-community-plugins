@@ -22,7 +22,7 @@ import {
   useState,
 } from 'react';
 import * as yup from 'yup';
-import Alert from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { costInsightsApiRef } from '../api';
 import { MapLoadingToProps, useLoading } from './useLoading';
 import { DefaultLoadingAction } from '../utils/loading';
@@ -82,7 +82,7 @@ export const BillingDateProvider = ({ children }: PropsWithChildren<{}>) => {
   }, [client]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (error) {
-    return <Alert severity="error">{error.message}</Alert>;
+    return <Alert status="danger" icon title={error.message} />;
   }
 
   if (!lastCompleteBillingDate) return null;

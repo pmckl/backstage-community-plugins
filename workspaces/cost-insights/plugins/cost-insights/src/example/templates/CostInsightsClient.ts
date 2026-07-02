@@ -27,7 +27,7 @@
 import {
   CostInsightsApi,
   ProductInsightsOptions,
-  Alert,
+  AlertItem,
   Cost,
   Entity,
   Group,
@@ -48,7 +48,7 @@ export class CostInsightsClient implements CostInsightsApi {
     return [];
   }
 
-  async getAlerts(group: string): Promise<Alert[]> {
+  async getAlerts(group: string): Promise<AlertItem[]> {
     return [];
   }
 

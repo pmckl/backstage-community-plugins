@@ -21,10 +21,10 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { useAlertInsightsSectionStyles as useStyles } from '../../utils/styles';
 import { ScrollAnchor } from '../../utils/scroll';
-import { Alert } from '../../types';
+import { AlertItem } from '../../types';
 
 type AlertInsightsSectionHeaderProps = {
-  alert: Alert;
+  alert: AlertItem;
   number: number;
 };
 

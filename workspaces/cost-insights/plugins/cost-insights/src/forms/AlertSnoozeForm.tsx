@@ -29,7 +29,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import Typography from '@material-ui/core/Typography';
 import {
-  Alert,
+  AlertItem,
   AlertFormProps,
   Duration,
   DEFAULT_DATE_FORMAT,
@@ -40,7 +40,10 @@ import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import { useAlertDialogStyles as useStyles } from '../utils/styles';
 import { intervalsOf } from '../utils/duration';
 
-export type AlertSnoozeFormProps = AlertFormProps<Alert, AlertSnoozeFormData>;
+export type AlertSnoozeFormProps = AlertFormProps<
+  AlertItem,
+  AlertSnoozeFormData
+>;
 
 export const AlertSnoozeForm = forwardRef<
   HTMLFormElement,

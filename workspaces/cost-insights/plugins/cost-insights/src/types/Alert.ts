@@ -37,7 +37,7 @@ import { Duration } from './Duration';
  *
  * @public
  */
-export type Alert = {
+export type AlertItem = {
   title: string | JSX.Element;
   subtitle: string | JSX.Element;
   element?: JSX.Element;
@@ -47,14 +47,14 @@ export type Alert = {
   SnoozeForm?: Maybe<AlertForm>;
   AcceptForm?: Maybe<AlertForm>;
   DismissForm?: Maybe<AlertForm>;
-  onSnoozed?(options: AlertOptions): Promise<Alert[]>;
-  onAccepted?(options: AlertOptions): Promise<Alert[]>;
-  onDismissed?(options: AlertOptions): Promise<Alert[]>;
+  onSnoozed?(options: AlertOptions): Promise<AlertItem[]>;
+  onAccepted?(options: AlertOptions): Promise<AlertItem[]>;
+  onDismissed?(options: AlertOptions): Promise<AlertItem[]>;
 };
 
 /** @public */
 export type AlertForm<
-  A extends Alert = any,
+  A extends AlertItem = any,
   Data = any,
 > = ForwardRefExoticComponent<
   AlertFormProps<A, Data> & RefAttributes<HTMLFormElement>
@@ -98,7 +98,7 @@ export enum AlertStatus {
 }
 
 /** @public */
-export type AlertFormProps<A extends Alert, FormData = {}> = {
+export type AlertFormProps<A extends AlertItem, FormData = {}> = {
   alert: A;
   onSubmit: (data: FormData) => void;
   disableSubmit: (isDisabled: boolean) => void;

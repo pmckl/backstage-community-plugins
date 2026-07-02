@@ -23,7 +23,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Alert from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { PageFilters, ProductFilters } from '../types';
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -98,7 +98,7 @@ export const FilterProvider = ({ children }: PropsWithChildren<{}>) => {
   }, [pageFilters]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (error) {
-    return <Alert severity="error">{error.message}</Alert>;
+    return <Alert status="danger" icon title={error.message} />;
   }
 
   // Wait for filters to load

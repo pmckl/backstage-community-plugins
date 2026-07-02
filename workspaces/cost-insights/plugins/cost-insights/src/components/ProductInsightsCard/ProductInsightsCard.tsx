@@ -23,7 +23,7 @@ import {
 } from 'react';
 import pluralize from 'pluralize';
 import Typography from '@material-ui/core/Typography';
-import { default as Alert } from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { DateRangePicker } from '../PeriodSelect';
 import { ProductInsightsChart } from './ProductInsightsChart';
 import { useProductInsightsCardStyles as useStyles } from '../../utils/styles';
@@ -141,11 +141,15 @@ export const ProductInsightsCard = ({
     return (
       <InfoCard title={product.name} headerProps={headerProps}>
         <ScrollAnchor id={product.kind} />
-        <Alert severity="error">
-          {error
-            ? error.message
-            : `Error: Could not fetch product insights for ${product.name}`}
-        </Alert>
+        <Alert
+          status="danger"
+          icon
+          title={
+            error
+              ? error.message
+              : `Error: Could not fetch product insights for ${product.name}`
+          }
+        />
       </InfoCard>
     );
   }

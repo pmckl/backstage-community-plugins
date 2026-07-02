@@ -30,7 +30,7 @@ import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import {
-  Alert,
+  AlertItem,
   AlertFormProps,
   AlertDismissReason,
   AlertDismissOptions,
@@ -39,7 +39,10 @@ import {
 import { Maybe } from '@backstage-community/plugin-cost-insights-common';
 import { useAlertDialogStyles as useStyles } from '../utils/styles';
 
-export type AlertDismissFormProps = AlertFormProps<Alert, AlertDismissFormData>;
+export type AlertDismissFormProps = AlertFormProps<
+  AlertItem,
+  AlertDismissFormData
+>;
 
 export const AlertDismissForm = forwardRef<
   HTMLFormElement,

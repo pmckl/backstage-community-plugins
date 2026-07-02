@@ -16,9 +16,9 @@
 import { forwardRef, ReactNode } from 'react';
 import { formOf } from './alerts';
 import { AlertAcceptForm, AlertDismissForm, AlertSnoozeForm } from '../forms';
-import { Alert, AlertStatus, AlertFormProps } from '../types';
+import { AlertItem, AlertStatus, AlertFormProps } from '../types';
 
-type Props = AlertFormProps<Alert, any>;
+type Props = AlertFormProps<AlertItem, any>;
 
 const createMockForm = (children: ReactNode) =>
   forwardRef<HTMLFormElement, Props>((props, ref) => (
@@ -27,60 +27,60 @@ const createMockForm = (children: ReactNode) =>
     </form>
   ));
 
-const snoozeDefault: Alert = {
+const snoozeDefault: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onSnoozed: jest.fn(),
 };
 
-const snoozeCustom: Alert = {
+const snoozeCustom: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onSnoozed: jest.fn(),
   SnoozeForm: createMockForm('Snooze'),
 };
 
-const snoozeNull: Alert = {
+const snoozeNull: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onSnoozed: jest.fn(),
   SnoozeForm: null,
 };
 
-const acceptDefault: Alert = {
+const acceptDefault: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onAccepted: jest.fn(),
 };
 
-const acceptCustom: Alert = {
+const acceptCustom: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onAccepted: jest.fn(),
   AcceptForm: createMockForm('Accept'),
 };
 
-const acceptNull: Alert = {
+const acceptNull: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onAccepted: jest.fn(),
   AcceptForm: null,
 };
 
-const dismissDefault: Alert = {
+const dismissDefault: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onDismissed: jest.fn(),
 };
 
-const dismissCustom: Alert = {
+const dismissCustom: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onDismissed: jest.fn(),
   DismissForm: createMockForm('Dismiss'),
 };
 
-const dismissNull: Alert = {
+const dismissNull: AlertItem = {
   title: 'title',
   subtitle: 'subtitle',
   onDismissed: jest.fn(),

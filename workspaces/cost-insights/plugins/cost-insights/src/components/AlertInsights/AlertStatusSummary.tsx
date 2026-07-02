@@ -22,11 +22,11 @@ import Divider from '@material-ui/core/Divider';
 import Tooltip from '@material-ui/core/Tooltip';
 import { RiCheckLine, RiDeleteBinLine, RiTimeLine } from '@remixicon/react';
 import { ActionItemCard } from '../ActionItems';
-import { Alert, AlertStatus } from '../../types';
+import { AlertItem, AlertStatus } from '../../types';
 import { useActionItemCardStyles as useStyles } from '../../utils/styles';
 
 type AlertGroupProps = {
-  alerts: Alert[];
+  alerts: AlertItem[];
   status: AlertStatus;
   title: string;
   icon: JSX.Element;
@@ -56,9 +56,9 @@ const AlertGroup = ({ alerts, status, title, icon }: AlertGroupProps) => {
 
 type AlertStatusSummaryProps = {
   open: boolean;
-  snoozed: Alert[];
-  accepted: Alert[];
-  dismissed: Alert[];
+  snoozed: AlertItem[];
+  accepted: AlertItem[];
+  dismissed: AlertItem[];
 };
 
 export const AlertStatusSummary = ({

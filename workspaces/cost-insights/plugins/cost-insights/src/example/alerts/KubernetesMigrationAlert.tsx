@@ -19,7 +19,7 @@ import Typography from '@material-ui/core/Typography';
 import { KubernetesMigrationAlertCard } from '../components';
 import { CostInsightsApi } from '../../api';
 import {
-  Alert,
+  AlertItem,
   AlertForm,
   AlertOptions,
   AlertStatus,
@@ -42,13 +42,13 @@ export interface KubernetesMigrationData {
   services: Array<Entity>;
 }
 
-export interface KubernetesMigrationApi extends Alert {
+export interface KubernetesMigrationApi extends AlertItem {
   api: CostInsightsApi;
   data: KubernetesMigrationData;
 }
 
 /**
- * This is an example of an Alert implementation using optional event hooks.
+ * This is an example of an AlertItem implementation using optional event hooks.
  *
  * Event hooks can be used to enable users to dismiss, snooze, or accept an action item
  * - or any combination thereof. Defining a hook will generate default UI - button, dialog and
@@ -119,7 +119,7 @@ export class KubernetesMigrationAlert implements KubernetesMigrationApi {
   /* Fires when the onSubmit event is raised on a Dismiss form. Displays custom dismiss form. */
   async onDismissed(
     options: AlertOptions<KubernetesMigrationDismissFormData>,
-  ): Promise<Alert[]> {
+  ): Promise<AlertItem[]> {
     const alerts = await this.api.getAlerts(options.group);
     return new Promise(resolve =>
       setTimeout(resolve, 750, [
@@ -136,7 +136,7 @@ export class KubernetesMigrationAlert implements KubernetesMigrationApi {
   /* Fires when the onSubmit event is raised on a Snooze form. Displays default snooze form. */
   async onSnoozed(
     options: AlertOptions<AlertSnoozeFormData>,
-  ): Promise<Alert[]> {
+  ): Promise<AlertItem[]> {
     const alerts = await this.api.getAlerts(options.group);
     return new Promise(resolve =>
       setTimeout(resolve, 750, [
@@ -151,7 +151,7 @@ export class KubernetesMigrationAlert implements KubernetesMigrationApi {
   }
 
   /* Fires when the Accept button is clicked. Dialog does not render a form. See KubernetesMigrationAlert.AcceptForm */
-  async onAccepted(options: AlertOptions<null>): Promise<Alert[]> {
+  async onAccepted(options: AlertOptions<null>): Promise<AlertItem[]> {
     const alerts = await this.api.getAlerts(options.group);
     return new Promise(resolve =>
       setTimeout(resolve, 750, [

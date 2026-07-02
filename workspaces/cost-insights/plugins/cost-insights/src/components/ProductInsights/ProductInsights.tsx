@@ -17,7 +17,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import { default as Alert } from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { costInsightsApiRef } from '../../api';
 import { ProductInsightsCardList } from '../ProductInsightsCard/ProductInsightsCardList';
 import { Duration } from '../../types';
@@ -151,7 +151,7 @@ export const ProductInsights = ({
         </Typography>
       </Box>
       {error ? (
-        <Alert severity="error">{error.message}</Alert>
+        <Alert status="danger" icon title={error.message} />
       ) : (
         <ProductInsightsCardList
           initialStates={initialStates}

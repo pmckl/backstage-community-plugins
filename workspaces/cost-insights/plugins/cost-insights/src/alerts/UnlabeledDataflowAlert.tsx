@@ -15,16 +15,16 @@
  */
 
 import { UnlabeledDataflowAlertCard } from '../components/UnlabeledDataflowAlertCard';
-import { Alert, AlertStatus, UnlabeledDataflowData } from '../types';
+import { AlertItem, AlertStatus, UnlabeledDataflowData } from '../types';
 
 /**
- * The alert below is an example of an Alert implementation; the CostInsightsApi permits returning
- * any implementation of the Alert type, so adopters can create their own. The CostInsightsApi
- * fetches alert data from the backend, then creates Alert classes with the data.
+ * The alert below is an example of an AlertItem implementation; the CostInsightsApi permits returning
+ * any implementation of the AlertItem type, so adopters can create their own. The CostInsightsApi
+ * fetches alert data from the backend, then creates AlertItem classes with the data.
  *
  * @public
  */
-export class UnlabeledDataflowAlert implements Alert {
+export class UnlabeledDataflowAlert implements AlertItem {
   data: UnlabeledDataflowData;
   status?: AlertStatus;
 

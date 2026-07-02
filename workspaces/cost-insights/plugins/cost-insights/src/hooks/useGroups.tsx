@@ -21,7 +21,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Alert from '@material-ui/lab/Alert';
+import { Alert } from '@backstage/ui';
 import { costInsightsApiRef } from '../api';
 import { MapLoadingToProps, useLoading } from './useLoading';
 import { Group, Maybe } from '@backstage-community/plugin-cost-insights-common';
@@ -79,7 +79,7 @@ export const GroupsProvider = ({ children }: PropsWithChildren<{}>) => {
   }, [client]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (error) {
-    return <Alert severity="error">{error.message}</Alert>;
+    return <Alert status="danger" icon title={error.message} />;
   }
 
   if (!groups) return null;
